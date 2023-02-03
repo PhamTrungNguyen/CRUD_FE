@@ -21,10 +21,10 @@ export class StudentCrudComponent {
   public resultsRestore: any[] = [];
   public userId: string = '';
   public resultAlert: any;
-  public testInput : any = {
-    title:"Truyền dữ liệu component",
-    name:"Cha sang con"
-  }
+  public testInput: any = {
+    title: 'Truyền dữ liệu component',
+    name: 'Cha sang con',
+  };
   public Toast = Swal.mixin({
     toast: true,
     position: 'top-end',
@@ -52,7 +52,7 @@ export class StudentCrudComponent {
         address: this.address,
         phone: this.phone,
       };
-      let urlAPI = 'http://localhost:8080/api/user/createUser';
+      let urlAPI = 'https://crudbe.herokuapp.com/api/user/createUser';
       this.callAPI
         .APIPost(urlAPI, bodyData, this.session.getSession('token'))
         .subscribe(
@@ -92,7 +92,8 @@ export class StudentCrudComponent {
       address: this.address,
       phone: this.phone,
     };
-    let urlAPI = 'http://localhost:8080/api/user/updateUser/' + this.userId;
+    let urlAPI =
+      'https://crudbe.herokuapp.com/api/user/updateUser/' + this.userId;
     this.callAPI
       .APIUpdate(urlAPI, bodyData, this.session.getSession('token'))
       .subscribe(
@@ -120,7 +121,7 @@ export class StudentCrudComponent {
     let bodyData = {
       checkDelete: true,
     };
-    let urlAPI = 'http://localhost:8080/api/user/deleteUser/' + id;
+    let urlAPI = 'https://crudbe.herokuapp.com/api/user/deleteUser/' + id;
     this.callAPI
       .APIUpdate(urlAPI, bodyData, this.session.getSession('token'))
       .subscribe(
@@ -151,7 +152,7 @@ export class StudentCrudComponent {
     let bodyData = {
       checkDelete: false,
     };
-    let urlAPI = 'http://localhost:8080/api/user/restoreUser/' + id;
+    let urlAPI = 'https://crudbe.herokuapp.com/api/user/restoreUser/' + id;
     this.callAPI
       .APIUpdate(urlAPI, bodyData, this.session.getSession('token'))
       .subscribe(
@@ -205,9 +206,9 @@ export class StudentCrudComponent {
       this.router.navigate(['/login']);
     }
     console.log(this.session.getSession('token'));
-    let urlAPIGetAll = 'http://localhost:8080/api/user/findAllUser';
+    let urlAPIGetAll = 'https://crudbe.herokuapp.com/api/user/findAllUser';
     let urlAPIGetAllRestore =
-      'http://localhost:8080/api/user/findAllUserRestore';
+      'https://crudbe.herokuapp.com/api/user/findAllUserRestore';
     this.callAPI
       .APIGet(urlAPIGetAll, this.session.getSession('token'))
       .subscribe(

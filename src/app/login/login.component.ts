@@ -38,7 +38,7 @@ export class LoginComponent {
       username: this.formData.get('username')?.value,
       password: this.formData.get('password')?.value,
     };
-    let urlAPI = 'http://localhost:8080/api/auth/loginAccount';
+    let urlAPI = 'https://crudbe.herokuapp.com/api/auth/loginAccount';
     this.callAPI
       .APIPost(urlAPI, bodyData, this.session.getSession('token'))
       .subscribe(

@@ -41,7 +41,7 @@ export class RegisterComponent {
       confirmPassword: this.formData.get('confirmPassword')?.value,
       role: this.formData.get('role')?.value,
     };
-    let urlAPI = 'http://localhost:8080/api/auth/createAccount';
+    let urlAPI = 'https://crudbe.herokuapp.com/api/auth/createAccount';
     this.callAPI
       .APIPost(urlAPI, bodyData, this.session.getSession('token'))
       .subscribe(
